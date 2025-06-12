@@ -1,0 +1,120 @@
+:root {
+  --bg-light: linear-gradient(135deg, #f0f4fd, #dce2f0);
+  --bg-dark: linear-gradient(135deg, #1c1e26, #2c2f3a);
+
+  --calc-light: rgba(255, 255, 255, 0.25);
+  --calc-dark: rgba(0, 0, 0, 0.4);
+
+  --display-light: rgba(255, 255, 255, 0.6);
+  --display-dark: rgba(0, 0, 0, 0.5);
+
+  --btn-light: rgba(255, 255, 255, 0.3);
+  --btn-dark: rgba(255, 255, 255, 0.15);
+
+  --text-light: #000;
+  --text-dark: #fff;
+
+  --highlight: #ffd700;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  transition: background 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+body.light {
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+body.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1rem;
+  color: inherit;
+}
+
+.calculator {
+  background-color: var(--calc-light);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  width: 320px;
+  padding: 20px;
+  transition: background 0.4s ease-in-out;
+}
+
+body.dark .calculator {
+  background-color: var(--calc-dark);
+}
+
+.display {
+  min-height: 60px;
+  font-size: 2.3rem;
+  text-align: right;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  word-wrap: break-word;
+  transition: all 0.3s ease-in-out;
+  background: var(--display-light);
+  color: var(--text-light);
+}
+
+body.dark .display {
+  background: var(--display-dark);
+  color: var(--text-dark);
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.btn {
+  font-size: 1.4rem;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.2s ease;
+  background-color: var(--btn-light);
+  color: var(--text-light);
+}
+
+body.dark .btn {
+  background-color: var(--btn-dark);
+  color: var(--text-dark);
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.operator {
+  color: var(--highlight);
+}
+
+.equal {
+  grid-column: span 2;
+  background: var(--highlight);
+  color: #222;
+  font-weight: bold;
+}
+
+.equal:hover {
+  background: #ffcc00;
+}
